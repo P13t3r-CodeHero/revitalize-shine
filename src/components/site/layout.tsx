@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { navLinks } from "@/lib/site-data";
 
@@ -7,31 +6,22 @@ export function Header() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-brand-gold/15 bg-brand-charcoal/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link
-          to="/"
-          className="font-serif text-2xl font-bold tracking-tight text-brand-sand"
-        >
+        <a href="#home" className="font-serif text-2xl font-bold tracking-tight text-brand-sand">
           OPEN <span className="text-brand-gold">BLINDS</span>
-        </Link>
+        </a>
         <div className="hidden gap-10 text-xs font-semibold uppercase tracking-widest text-brand-sand/80 md:flex">
           {navLinks.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              activeOptions={{ exact: true }}
-              activeProps={{ className: "text-brand-gold" }}
-              className="transition-colors hover:text-brand-gold"
-            >
+            <a key={l.hash} href={l.hash} className="transition-colors hover:text-brand-gold">
               {l.label}
-            </Link>
+            </a>
           ))}
         </div>
-        <Link
-          to="/contact"
+        <a
+          href="#contact"
           className="hidden bg-brand-gold px-6 py-3 text-xs font-bold uppercase tracking-widest text-brand-charcoal transition-colors hover:bg-brand-gold-light md:inline-block"
         >
           Free Quote
-        </Link>
+        </a>
         <button
           aria-label="Toggle menu"
           className="md:hidden"
@@ -46,24 +36,22 @@ export function Header() {
         <div className="border-t border-brand-gold/15 bg-brand-charcoal md:hidden">
           <div className="flex flex-col gap-4 px-6 py-6 text-xs font-semibold uppercase tracking-widest text-brand-sand">
             {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
+              <a
+                key={l.hash}
+                href={l.hash}
                 onClick={() => setOpen(false)}
-                activeOptions={{ exact: true }}
-                activeProps={{ className: "text-brand-gold" }}
                 className="hover:text-brand-gold"
               >
                 {l.label}
-              </Link>
+              </a>
             ))}
-            <Link
-              to="/contact"
+            <a
+              href="#contact"
               onClick={() => setOpen(false)}
               className="mt-2 bg-brand-gold px-6 py-3 text-center font-bold text-brand-charcoal"
             >
               Free Quote
-            </Link>
+            </a>
           </div>
         </div>
       )}
@@ -91,16 +79,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-export function PageShell({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="min-h-screen bg-brand-charcoal font-sans text-brand-sand">
-      <Header />
-      <main className="pt-20">{children}</main>
-      <Footer />
-    </div>
   );
 }
 
