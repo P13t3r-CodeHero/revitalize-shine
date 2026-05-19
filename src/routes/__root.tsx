@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Header, Footer } from "@/components/site/layout";
 
 function NotFoundComponent() {
   return (
@@ -122,7 +123,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <SiteShell>
+        <Outlet />
+      </SiteShell>
     </QueryClientProvider>
+  );
+}
+
+function SiteShell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen bg-brand-charcoal font-sans text-brand-sand">
+      <Header />
+      <main className="pt-20">{children}</main>
+      <Footer />
+    </div>
   );
 }
