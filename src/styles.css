@@ -30,9 +30,11 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Brand tokens */
+  /* Brand tokens — Noir & Gold */
   --color-brand-charcoal: var(--brand-charcoal);
+  --color-brand-surface: var(--brand-surface);
   --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
   --color-brand-sand: var(--brand-sand);
 
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
@@ -42,42 +44,44 @@
 :root {
   --radius: 0.5rem;
 
-  /* Brand */
-  --brand-charcoal: #1a1a1a;
-  --brand-gold: #c5a059;
+  /* Brand — Noir & Gold */
+  --brand-charcoal: #0d0d0d;
+  --brand-surface: #1a1a1a;
+  --brand-gold: #c9a84c;
+  --brand-gold-light: #f0d78c;
   --brand-sand: #f5f2ed;
 
-  --background: var(--brand-sand);
-  --foreground: var(--brand-charcoal);
-  --card: #ffffff;
-  --card-foreground: var(--brand-charcoal);
-  --popover: #ffffff;
-  --popover-foreground: var(--brand-charcoal);
-  --primary: var(--brand-charcoal);
-  --primary-foreground: #ffffff;
-  --secondary: #efeae1;
-  --secondary-foreground: var(--brand-charcoal);
-  --muted: #efeae1;
-  --muted-foreground: #6b6b6b;
+  --background: var(--brand-charcoal);
+  --foreground: var(--brand-sand);
+  --card: var(--brand-surface);
+  --card-foreground: var(--brand-sand);
+  --popover: var(--brand-surface);
+  --popover-foreground: var(--brand-sand);
+  --primary: var(--brand-gold);
+  --primary-foreground: var(--brand-charcoal);
+  --secondary: #232323;
+  --secondary-foreground: var(--brand-sand);
+  --muted: #1f1f1f;
+  --muted-foreground: #a8a8a8;
   --accent: var(--brand-gold);
-  --accent-foreground: #ffffff;
+  --accent-foreground: var(--brand-charcoal);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: rgba(26, 26, 26, 0.08);
-  --input: rgba(26, 26, 26, 0.15);
+  --border: rgba(245, 242, 237, 0.08);
+  --input: rgba(245, 242, 237, 0.15);
   --ring: var(--brand-gold);
 }
 
 .dark {
-  --background: #111111;
-  --foreground: #f5f2ed;
-  --card: #1a1a1a;
-  --card-foreground: #f5f2ed;
-  --popover: #1a1a1a;
-  --popover-foreground: #f5f2ed;
-  --primary: #f5f2ed;
-  --primary-foreground: #1a1a1a;
-  --secondary: #222;
+  --background: var(--brand-charcoal);
+  --foreground: var(--brand-sand);
+  --card: var(--brand-surface);
+  --card-foreground: var(--brand-sand);
+  --popover: var(--brand-surface);
+  --popover-foreground: var(--brand-sand);
+  --primary: var(--brand-gold);
+  --primary-foreground: var(--brand-charcoal);
+  --secondary: #232323;
   --secondary-foreground: #f5f2ed;
   --muted: #222;
   --muted-foreground: #a0a0a0;
