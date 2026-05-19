@@ -4,12 +4,12 @@ import productHoneycomb from "@/assets/product-honeycomb.jpg";
 import productVenetian from "@/assets/product-venetian.jpg";
 
 export const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/products", label: "Products" },
-  { to: "/services", label: "Services" },
-  { to: "/testimonials", label: "Testimonials" },
-  { to: "/contact", label: "Contact" },
+  { hash: "#home", label: "Home" },
+  { hash: "#about", label: "About" },
+  { hash: "#products", label: "Products" },
+  { hash: "#services", label: "Services" },
+  { hash: "#testimonials", label: "Testimonials" },
+  { hash: "#contact", label: "Contact" },
 ] as const;
 
 export const products = [
