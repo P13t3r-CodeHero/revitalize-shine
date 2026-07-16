@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Instagram, Facebook } from "lucide-react";
-import { navLinks } from "@/lib/site-data";
+import { navLinks, contactInfo } from "@/lib/site-data";
 
 export function Header() {
   const [open, setOpen] = useState(false);
