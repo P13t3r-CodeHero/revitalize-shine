@@ -70,22 +70,24 @@ export function Footer() {
         <p className="text-[10px] uppercase tracking-widest text-brand-sand/40">
           © {new Date().getFullYear()} Open Blinds Mbombela. Precision in every slat.
         </p>
-        <div className="flex gap-6 text-[10px] uppercase tracking-widest">
+        <div className="flex items-center gap-5">
           <a
             href="https://www.instagram.com/open_blinds_mbombela?igsh=aGdyNzFtM3kybHJ6&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-brand-gold"
+            aria-label="Instagram"
+            className="text-brand-sand/60 transition-colors hover:text-brand-gold"
           >
-            Instagram
+            <Instagram size={20} strokeWidth={1.5} />
           </a>
           <a
             href="https://www.facebook.com/profile.php?id=61563113017635&mibextid=LQQJ4d"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-brand-gold"
+            aria-label="Facebook"
+            className="text-brand-sand/60 transition-colors hover:text-brand-gold"
           >
-            Facebook
+            <Facebook size={20} strokeWidth={1.5} />
           </a>
         </div>
       </div>
