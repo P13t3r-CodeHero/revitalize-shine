@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import heroInterior from "@/assets/hero-interior.jpg";
 import { SectionEyebrow, WhatsAppIcon } from "@/components/site/layout";
 import { products, services, testimonials, contactInfo } from "@/lib/site-data";
@@ -146,13 +146,13 @@ function Products() {
             Custom engineered for every space
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-px border border-brand-gold/15 bg-brand-gold/15 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((p) => (
             <article
               key={p.name}
-              className="group bg-brand-charcoal p-8 transition-colors hover:bg-brand-surface"
+              className="group bg-brand-charcoal p-6 transition-colors hover:bg-brand-surface flex flex-col h-full border border-brand-gold/10 rounded-lg"
             >
-              <div className="mb-6 aspect-[3/4] overflow-hidden">
+              <div className="aspect-[3/4] overflow-hidden rounded-md">
                 <img
                   src={p.img}
                   alt={`${p.name} blinds`}
@@ -162,8 +162,10 @@ function Products() {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
-              <h3 className="mb-2 font-serif text-xl text-brand-sand">{p.name}</h3>
-              <p className="text-sm leading-relaxed text-brand-sand/60">{p.blurb}</p>
+              <div className="mt-4 flex flex-col mt-auto">
+                <h3 className="mb-2 font-serif text-lg text-brand-sand">{p.name}</h3>
+                <p className="text-sm leading-relaxed text-brand-sand/60">{p.blurb}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -182,14 +184,12 @@ function Services() {
             One team, <span className="italic text-brand-gold">end to end.</span>
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-px border border-brand-gold/15 bg-brand-gold/15 md:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {services.map((s) => (
-            <div key={s.n} className="bg-brand-surface p-10">
+            <div key={s.n} className="bg-brand-surface p-8 flex flex-col h-full border border-brand-gold/10 rounded-lg">
               <span className="font-serif text-3xl text-brand-gold">{s.n}</span>
-              <h3 className="mb-4 mt-4 font-serif text-2xl text-brand-sand">
-                {s.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-brand-sand/70">{s.body}</p>
+              <h3 className="mb-4 mt-4 font-serif text-2xl text-brand-sand">{s.title}</h3>
+              <p className="text-sm leading-relaxed text-brand-sand/70 mt-auto">{s.body}</p>
             </div>
           ))}
         </div>
@@ -199,6 +199,18 @@ function Services() {
 }
 
 function Testimonials() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % testimonials.length);
+    }, 7000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const current = testimonials[activeIndex];
+
   return (
     <section id="testimonials" className="scroll-mt-24 px-6 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -208,17 +220,62 @@ function Testimonials() {
             Kind words from clients
           </h2>
         </div>
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <figure key={t.name} className="border-t border-brand-gold/25 pt-8">
-              <blockquote className="font-serif text-xl leading-snug text-brand-sand">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-6 text-xs uppercase tracking-widest text-brand-gold">
-                {t.name}
-              </figcaption>
-            </figure>
-          ))}
+
+        <div className="space-y-6">
+          <figure className="mx-auto max-w-4xl rounded-[1.75rem] border border-brand-gold/20 bg-brand-surface p-10 text-center shadow-[0_24px_80px_-50px_rgba(255,215,130,0.45)]">
+            <div className="mb-6 flex justify-center gap-2 text-brand-gold">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <span key={index} aria-hidden="true">
+                  ★
+                </span>
+              ))}
+            </div>
+            <blockquote className="font-serif text-2xl leading-snug text-brand-sand sm:text-[2.15rem]">
+              &ldquo;{current.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-8 text-xs uppercase tracking-[0.35em] text-brand-gold">
+              {current.name}
+            </figcaption>
+          </figure>
+
+          <div className="flex flex-wrap justify-center gap-4">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveIndex((current) =>
+                  current === 0 ? testimonials.length - 1 : current - 1,
+                )
+              }
+              className="rounded-full border border-brand-gold/30 bg-brand-charcoal px-5 py-3 text-sm text-brand-sand transition hover:border-brand-gold hover:text-brand-gold"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setActiveIndex((current) => (current + 1) % testimonials.length)
+              }
+              className="rounded-full border border-brand-gold/30 bg-brand-charcoal px-5 py-3 text-sm text-brand-sand transition hover:border-brand-gold hover:text-brand-gold"
+            >
+              Next
+            </button>
+          </div>
+
+          <div className="flex justify-center gap-3">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                  index === activeIndex
+                    ? "bg-brand-gold"
+                    : "bg-brand-gold/30 hover:bg-brand-gold/70"
+                }`}
+                aria-label={`Show testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
