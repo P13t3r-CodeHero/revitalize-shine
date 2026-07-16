@@ -72,7 +72,7 @@ export function Footer() {
         </p>
         <div className="flex items-center gap-5">
           <a
-            href="https://www.instagram.com/open_blinds_mbombela?igsh=aGdyNzFtM3kybHJ6&utm_source=qr"
+            href={contactInfo.instagram}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -81,13 +81,22 @@ export function Footer() {
             <Instagram size={20} strokeWidth={1.5} />
           </a>
           <a
-            href="https://www.facebook.com/profile.php?id=61563113017635&mibextid=LQQJ4d"
+            href={contactInfo.facebook}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
             className="text-brand-sand/60 transition-colors hover:text-brand-gold"
           >
             <Facebook size={20} strokeWidth={1.5} />
+          </a>
+          <a
+            href={contactInfo.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="text-brand-sand/60 transition-colors hover:text-brand-gold"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
           </a>
         </div>
       </div>
