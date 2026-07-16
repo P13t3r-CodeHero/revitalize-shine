@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Instagram, Facebook } from "lucide-react";
 import { navLinks } from "@/lib/site-data";
 
 export function Header() {
