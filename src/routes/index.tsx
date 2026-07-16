@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import heroInterior from "@/assets/hero-interior.jpg";
-import { SectionEyebrow } from "@/components/site/layout";
+import { SectionEyebrow, WhatsAppIcon } from "@/components/site/layout";
 import { products, services, testimonials, contactInfo } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
@@ -38,11 +38,9 @@ function HomePage() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-transform hover:scale-110"
+        className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full border border-brand-gold/30 bg-brand-charcoal text-brand-gold shadow-xl transition-all hover:scale-110 hover:bg-brand-gold hover:text-brand-charcoal"
       >
-        <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor" aria-hidden>
-          <path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.5 0 .18 5.32.18 11.87c0 2.09.55 4.13 1.6 5.93L0 24l6.35-1.66a11.87 11.87 0 0 0 5.7 1.45h.01c6.55 0 11.87-5.32 11.87-11.87 0-3.17-1.24-6.15-3.41-8.44zM12.06 21.3h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.77.99 1-3.67-.22-.38a9.4 9.4 0 0 1-1.44-5.02c0-5.19 4.22-9.41 9.42-9.41 2.51 0 4.87.98 6.65 2.76a9.34 9.34 0 0 1 2.76 6.66c0 5.19-4.22 9.41-9.26 9.58zm5.16-7.05c-.28-.14-1.67-.83-1.93-.92-.26-.09-.45-.14-.64.14-.19.28-.73.92-.9 1.11-.17.19-.33.21-.61.07-.28-.14-1.18-.44-2.25-1.39-.83-.74-1.4-1.65-1.56-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.5-.07-.14-.64-1.53-.88-2.1-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.35-.26.28-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.14.19 2 3.05 4.85 4.28.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.67-.68 1.9-1.34.24-.66.24-1.22.17-1.34-.07-.12-.26-.19-.54-.33z"/>
-        </svg>
+        <WhatsAppIcon className="h-7 w-7" />
       </a>
     </>
   );
