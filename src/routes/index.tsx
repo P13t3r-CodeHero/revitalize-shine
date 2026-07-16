@@ -206,7 +206,7 @@ function Testimonials() {
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-6 text-xs uppercase tracking-widest text-brand-gold">
-                {t.name} — {t.place}
+                {t.name}
               </figcaption>
             </figure>
           ))}
