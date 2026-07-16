@@ -67,23 +67,27 @@ export function Footer() {
           OPEN <span className="text-brand-gold">BLINDS</span>
         </span>
         <p className="text-[10px] uppercase tracking-widest text-brand-sand/40">
-          © {new Date().getFullYear()} Open Blinds South Africa. Precision in every slat.
+          © {new Date().getFullYear()} Open Blinds Mbombela. Precision in every slat.
         </p>
         <div className="flex gap-6 text-[10px] uppercase tracking-widest">
-          <a href="#" className="hover:text-brand-gold">
+          <a
+            href="https://www.instagram.com/open_blinds_mbombela?igsh=aGdyNzFtM3kybHJ6&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-gold"
+          >
             Instagram
           </a>
-          <a href="#" className="hover:text-brand-gold">
+          <a
+            href="https://www.facebook.com/profile.php?id=61563113017635&mibextid=LQQJ4d"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-gold"
+          >
             Facebook
           </a>
         </div>
       </div>
     </footer>
-  );
-}
-
-export function SectionEyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-4 text-xs uppercase tracking-widest text-brand-gold">{children}</p>
   );
 }
