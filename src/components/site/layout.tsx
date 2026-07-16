@@ -91,3 +91,9 @@ export function Footer() {
     </footer>
   );
 }
+
+export function SectionEyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="mb-4 text-xs uppercase tracking-widest text-brand-gold">{children}</p>
+  );
+}
