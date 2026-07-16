@@ -1,7 +1,13 @@
 import productAluwood from "@/assets/product-aluwood.jpg";
-import productPlaswood from "@/assets/product-plaswood.jpg";
-import productHoneycomb from "@/assets/product-honeycomb.jpg";
-import productVenetian from "@/assets/product-venetian.jpg";
+import productPlaswood from "@/assets/plaswood.jpg";
+import productHoneycomb from "@/assets/honeycomb.jpg";
+import productVenetian from "@/assets/venetian.jpg";
+import productVeritcal from "@/assets/vertical.jpg";
+import productWood from "@/assets/wood.jpg";
+import productOutdoorRoller from "@/assets/outdoor_rollerblinds.jpg";
+import productRoman from "@/assets/roman.jpg";
+import productRoller from "@/assets/rollerblinds-product.jpg";
+import productDoubleRoller from "@/assets/double-roller.jpg";
 
 export const navLinks = [
   { hash: "#home", label: "Home" },
@@ -14,7 +20,7 @@ export const navLinks = [
 
 export const contactInfo = {
   address: "Portion 31 of Farm Alkmaar, Mbombela",
-  email: "openblinds1@outlook.com",
+  email: "admin@openblinds.co.za",
   phone: "072 802 9022",
   whatsapp: "https://wa.me/27728029022",
   facebook:
@@ -50,37 +56,37 @@ export const products = [
   },
   {
     name: "Vertical",
-    img: productPlaswood,
+    img: productVeritcal,
     blurb:
       "A headrail and vertical louvres that draw across the window on cords, and tilt for precise control of light and view.",
   },
   {
     name: "Wooden",
-    img: productAluwood,
+    img: productWood,
     blurb:
       "Timeless horizontal wooden slats suspended on cords, tilted to control light and visibility — a warm, versatile window covering.",
   },
   {
     name: "Outdoor Roller",
-    img: productHoneycomb,
+    img: productOutdoorRoller,
     blurb:
       "Sheerweave fabric that preserves the view while blocking UV, glare and rain — up to 88–95% wind and rain protection.",
   },
   {
     name: "Roller",
-    img: productVenetian,
+    img: productRoller,
     blurb:
       "A single piece of fabric wrapped around a casing that fits inside or outside the window recess. Clean, simple, versatile.",
   },
   {
     name: "Double Roller",
-    img: productPlaswood,
+    img: productDoubleRoller,
     blurb:
       "One set of brackets, two independent roller blinds — dim the sun during the day and secure privacy at night.",
   },
   {
     name: "Roman",
-    img: productHoneycomb,
+    img: productRoman,
     blurb:
       "Fabric that folds up in a soft concertina as the blind opens. A stylish, sumptuous finish that coordinates with your décor.",
   },
