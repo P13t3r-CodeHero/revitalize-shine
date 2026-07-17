@@ -10,16 +10,16 @@ import productRoller from "@/assets/rollerblinds-product.jpg";
 import productDoubleRoller from "@/assets/double-roller.jpg";
 
 import blindsCover from "@/assets/hero-interior.jpg";
-import shuttersImg from "@/assets/Shutters.png.asset.json";
-import curtainsImg from "@/assets/curtains.png.asset.json";
-import awningImg from "@/assets/Awning.png.asset.json";
-import outdoorRollerImg from "@/assets/Outdoor_roller.png.asset.json";
-import tintingImg from "@/assets/tinting.png.asset.json";
-import frostedImg from "@/assets/frosted_glass.png.asset.json";
-import securityGateImg from "@/assets/security_gate.png.asset.json";
-import safetyDoorImg from "@/assets/Safety_door.png.asset.json";
-import steelRoofImg from "@/assets/Steel_roof.png.asset.json";
-import furnitureImg from "@/assets/outdoor_furniture.png.asset.json";
+import shuttersImg from "@/assets/Shutters.png";
+import curtainsImg from "@/assets/curtains.png";
+import awningImg from "@/assets/Awning.png";
+import outdoorRollerImg from "@/assets/Outdoor roller.png";
+import tintingImg from "@/assets/tinting.png";
+import frostedImg from "@/assets/frosted glass.png";
+import securityGateImg from "@/assets/security gate.png";
+import safetyDoorImg from "@/assets/Safety door.png";
+import steelRoofImg from "@/assets/Steel roof .png";
+import furnitureImg from "@/assets/outdoor furniture .png";
 
 export const navLinks = [
   { hash: "#home", label: "Home" },
@@ -31,9 +31,8 @@ export const navLinks = [
 ] as const;
 
 export const contactInfo = {
-  address: "Portion 31 of Farm Alkmaar, Mbombela",
-  email: "admin@openblinds.co.za",
-  phone: "072 802 9022",
+  email: "admin@openblindsmpu.co.za ",
+  phone: "079 670 8077 / 071 580 4323",
   whatsapp: "https://wa.me/27728029022",
   facebook:
     "https://www.facebook.com/profile.php?id=61563113017635&mibextid=LQQJ4d",
@@ -64,7 +63,7 @@ export const solutions: Solution[] = [
     slug: "shutters",
     name: "Premium Plantation Shutters",
     tag: "Timeless",
-    img: shuttersImg.url,
+    img: shuttersImg,
     blurb:
       "Timeless elegance, superior light control and lasting value. Custom-made to fit your windows perfectly, complementing both modern and classic interiors.",
   },
@@ -72,7 +71,7 @@ export const solutions: Solution[] = [
     slug: "curtains",
     name: "Premium Curtains",
     tag: "Made to measure",
-    img: curtainsImg.url,
+    img: curtainsImg,
     blurb:
       "Custom-made curtains that bring warmth, elegance and comfort. Soft sheers, blockouts and everything between — tailored in a wide range of fabrics and textures.",
   },
@@ -80,7 +79,7 @@ export const solutions: Solution[] = [
     slug: "awnings",
     name: "Retractable Awnings",
     tag: "Outdoor comfort",
-    img: awningImg.url,
+    img: awningImg,
     blurb:
       "Instant shade for your patio or entertainment area. Weather-resistant fabrics on durable aluminium — extend or retract whenever you need protection from sun or light rain.",
   },
@@ -88,7 +87,7 @@ export const solutions: Solution[] = [
     slug: "outdoor-rollers",
     name: "Outdoor Roller Blinds",
     tag: "All-weather",
-    img: outdoorRollerImg.url,
+    img: outdoorRollerImg,
     blurb:
       "Transform your patio, deck, lapa or braai area. Built for the South African climate — sun, wind, glare and light rain protection while keeping your view.",
   },
@@ -96,7 +95,7 @@ export const solutions: Solution[] = [
     slug: "tinting",
     name: "Frosted Glass & Tinting",
     tag: "Privacy & UV",
-    img: tintingImg.url,
+    img: tintingImg,
     blurb:
       "Professional frosting and tinting films for homes, offices, bathrooms and shopfronts. Reduce heat, glare and UV — or add decorative privacy and branding.",
   },
@@ -104,7 +103,7 @@ export const solutions: Solution[] = [
     slug: "steelworks",
     name: "Steel Security & Steelworks",
     tag: "Custom fabricated",
-    img: securityGateImg.url,
+    img: securityGateImg,
     blurb:
       "Custom security gates, security doors, sliding driveway gates and bespoke steelwork. Strong physical protection, finished to architectural standards.",
   },
@@ -112,16 +111,16 @@ export const solutions: Solution[] = [
     slug: "furniture",
     name: "Recycled Plastic Furniture",
     tag: "Sustainable",
-    img: furnitureImg.url,
+    img: furnitureImg,
     blurb:
       "Benches, tables and outdoor sets made from recycled plastic. Won't rot, splinter, rust or fade — durable, low-maintenance and environmentally friendly.",
   },
 ];
 
 export const steelworksGallery = [
-  { img: securityGateImg.url, label: "Sliding driveway gates" },
-  { img: safetyDoorImg.url, label: "Security doors" },
-  { img: steelRoofImg.url, label: "Custom steel structures" },
+  { img: securityGateImg, label: "Sliding driveway gates" },
+  { img: safetyDoorImg, label: "Security doors" },
+  { img: steelRoofImg, label: "Custom steel structures" },
 ];
 
 export const products = [
