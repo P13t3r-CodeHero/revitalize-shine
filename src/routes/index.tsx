@@ -2,7 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import heroInterior from "@/assets/hero-interior.jpg";
 import { SectionEyebrow, WhatsAppIcon } from "@/components/site/layout";
-import { products, services, testimonials, contactInfo } from "@/lib/site-data";
+import {
+  products,
+  services,
+  testimonials,
+  contactInfo,
+  solutions,
+  steelworksGallery,
+} from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
