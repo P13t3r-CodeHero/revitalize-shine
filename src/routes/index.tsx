@@ -14,12 +14,6 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Open Blinds — Custom Window Blinds, Free Installation" },
-      {
-        name: "description",
-        content:
-          "Premium custom window blinds in South Africa. Aluwood, Plaswood, Honeycomb & Venetian — free quotes and free installation.",
-      },
       { title: "Open Blinds Mbombela — Blinds, Shutters, Curtains, Steelworks & More" },
       {
         name: "description",
