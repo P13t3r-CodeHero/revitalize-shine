@@ -14,17 +14,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Open Blinds Mbombela — Blinds, Shutters, Curtains, Steelworks & More" },
+      { title: "Open Blinds Mbombela - Blinds, Shutters, Curtains, Steelworks & More" },
       {
         name: "description",
         content:
           "Custom blinds, shutters, curtains, awnings, window tinting, steel security gates and recycled outdoor furniture. Free quotes and free installation in Mbombela.",
       },
-      { property: "og:title", content: "Open Blinds — Shade, style & security for your home" },
+      { property: "og:title", content: "Open Blinds - Shade, style & security for your home" },
       {
         property: "og:description",
         content:
-          "One team for blinds, shutters, curtains, tinting, steelworks and outdoor living — custom manufactured, professionally installed.",
+          "One team for blinds, shutters, curtains, tinting, steelworks and outdoor living - custom manufactured, professionally installed.",
       },
     ],
   }),
@@ -59,14 +59,14 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl grid-cols-12 items-center gap-8">
         <div className="col-span-12 lg:col-span-5">
           <p className="mb-6 text-xs uppercase tracking-widest text-brand-gold">
-            Shade · Style · Security — Mbombela
+            Shade · Style · Security - Mbombela
           </p>
           <h1 className="mb-8 font-serif text-6xl leading-[0.9] text-brand-sand lg:text-8xl">
             More than <span className="italic text-brand-gold">blinds.</span>
           </h1>
           <p className="mb-10 max-w-md text-lg text-brand-sand/65">
             Custom blinds, shutters, curtains, awnings, window tinting, steel
-            security and outdoor living — one team, professionally installed.
+            security and outdoor living - one team, professionally installed.
           </p>
           <div className="mb-10 flex flex-wrap gap-6 text-sm font-bold text-brand-sand">
             <span className="flex items-center gap-2">
@@ -117,7 +117,7 @@ function About() {
         </div>
         <div className="col-span-12 space-y-6 text-lg leading-relaxed text-brand-sand/75 lg:col-span-7 lg:col-start-6">
           <p>
-            Welcome to Open Blinds — a Mbombela-based team known for meticulous
+            Welcome to Open Blinds - a Mbombela-based team known for meticulous
             craftsmanship and personal service. What started with custom blinds has
             grown into a full home solutions offering: shutters, curtains, awnings,
             outdoor roller blinds, frosted glass &amp; tinting, custom steelworks
@@ -125,7 +125,7 @@ function About() {
           </p>
           <p>
             One trusted team, from measurement to installation. Every project starts
-            with a free consultation and quote — so you know exactly what you're
+            with a free consultation and quote - so you know exactly what you're
             getting before we begin.
           </p>
           <p className="border-l-2 border-brand-gold pl-6 font-serif text-xl italic text-brand-gold-light">
