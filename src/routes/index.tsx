@@ -59,14 +59,14 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl grid-cols-12 items-center gap-8">
         <div className="col-span-12 lg:col-span-5">
           <p className="mb-6 text-xs uppercase tracking-widest text-brand-gold">
-            Custom window blinds — South Africa
+            Shade · Style · Security — Mbombela
           </p>
           <h1 className="mb-8 font-serif text-6xl leading-[0.9] text-brand-sand lg:text-8xl">
-            Shade up your <span className="italic text-brand-gold">windows.</span>
+            More than <span className="italic text-brand-gold">blinds.</span>
           </h1>
           <p className="mb-10 max-w-md text-lg text-brand-sand/65">
-            Premium South African craftsmanship meets architectural precision.
-            Elevate your interior with custom-fitted window solutions.
+            Custom blinds, shutters, curtains, awnings, window tinting, steel
+            security and outdoor living — one team, professionally installed.
           </p>
           <div className="mb-10 flex flex-wrap gap-6 text-sm font-bold text-brand-sand">
             <span className="flex items-center gap-2">
@@ -84,10 +84,10 @@ function Hero() {
               Request Free Quote
             </a>
             <a
-              href="#products"
+              href="#solutions"
               className="border border-brand-gold/40 px-8 py-4 text-xs font-bold uppercase tracking-widest text-brand-sand transition-colors hover:bg-brand-gold/10"
             >
-              Explore Products
+              Explore Solutions
             </a>
           </div>
         </div>
