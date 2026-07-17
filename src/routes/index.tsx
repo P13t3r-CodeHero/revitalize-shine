@@ -137,15 +137,15 @@ function About() {
   );
 }
 
-function Products() {
+function Solutions() {
   return (
-    <section id="products" className="scroll-mt-24 px-6 py-20 lg:px-8">
+    <section id="solutions" className="scroll-mt-24 px-6 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 flex items-end justify-between gap-8">
           <div>
-            <SectionEyebrow>Products</SectionEyebrow>
+            <SectionEyebrow>Solutions</SectionEyebrow>
             <h2 className="font-serif text-4xl text-brand-sand lg:text-5xl">
-              The Collection
+              More than blinds.
             </h2>
           </div>
           <div className="hidden h-px flex-1 bg-brand-gold/20 md:block" />
@@ -153,28 +153,114 @@ function Products() {
             Custom engineered for every space
           </span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((p) => (
-            <article
-              key={p.name}
-              className="group bg-brand-charcoal p-6 transition-colors hover:bg-brand-surface flex flex-col h-full border border-brand-gold/10 rounded-lg"
-            >
-              <div className="aspect-[3/4] overflow-hidden rounded-md">
-                <img
-                  src={p.img}
-                  alt={`${p.name} blinds`}
-                  width={800}
-                  height={1000}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="mt-4 flex flex-col mt-auto">
-                <h3 className="mb-2 font-serif text-lg text-brand-sand">{p.name}</h3>
-                <p className="text-sm leading-relaxed text-brand-sand/60">{p.blurb}</p>
-              </div>
-            </article>
-          ))}
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {solutions.map((s) => {
+            const inner = (
+              <>
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="mb-3 flex items-center justify-between gap-4">
+                    <h3 className="font-serif text-xl text-brand-sand">{s.name}</h3>
+                    <span className="text-[10px] uppercase tracking-widest text-brand-gold">
+                      {s.tag}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-brand-sand/65">{s.blurb}</p>
+                  {s.anchor && (
+                    <span className="mt-4 text-xs font-bold uppercase tracking-widest text-brand-gold">
+                      View the range →
+                    </span>
+                  )}
+                </div>
+              </>
+            );
+            const className =
+              "group flex flex-col overflow-hidden rounded-lg border border-brand-gold/10 bg-brand-charcoal transition-colors hover:bg-brand-surface";
+            return s.anchor ? (
+              <a key={s.slug} href={s.anchor} className={className}>
+                {inner}
+              </a>
+            ) : (
+              <article key={s.slug} className={className}>
+                {inner}
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Blinds sub-range */}
+        <div id="blinds-range" className="mt-24 scroll-mt-24">
+          <div className="mb-10 flex items-end justify-between gap-8">
+            <div>
+              <SectionEyebrow>Blinds Range</SectionEyebrow>
+              <h3 className="font-serif text-3xl text-brand-sand lg:text-4xl">
+                Ten <span className="italic text-brand-gold">custom</span> blind types
+              </h3>
+            </div>
+            <div className="hidden h-px flex-1 bg-brand-gold/20 md:block" />
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {products.map((p) => (
+              <article
+                key={p.name}
+                className="group flex h-full flex-col rounded-lg border border-brand-gold/10 bg-brand-charcoal p-4 transition-colors hover:bg-brand-surface"
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-md">
+                  <img
+                    src={p.img}
+                    alt={`${p.name} blinds`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="mt-4 flex flex-1 flex-col">
+                  <h4 className="mb-2 font-serif text-base text-brand-sand">{p.name}</h4>
+                  <p className="text-xs leading-relaxed text-brand-sand/60">{p.blurb}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Steelworks gallery */}
+        <div id="steelworks-gallery" className="mt-24 scroll-mt-24">
+          <div className="mb-10 flex items-end justify-between gap-8">
+            <div>
+              <SectionEyebrow>Steelworks Gallery</SectionEyebrow>
+              <h3 className="font-serif text-3xl text-brand-sand lg:text-4xl">
+                Security &amp; <span className="italic text-brand-gold">bespoke</span> steel
+              </h3>
+            </div>
+            <div className="hidden h-px flex-1 bg-brand-gold/20 md:block" />
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {steelworksGallery.map((g) => (
+              <figure
+                key={g.label}
+                className="group overflow-hidden rounded-lg border border-brand-gold/10 bg-brand-charcoal"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={g.img}
+                    alt={g.label}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <figcaption className="p-4 text-xs uppercase tracking-widest text-brand-sand/80">
+                  {g.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
