@@ -2,22 +2,29 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import heroInterior from "@/assets/hero-interior.jpg";
 import { SectionEyebrow, WhatsAppIcon } from "@/components/site/layout";
-import { products, services, testimonials, contactInfo } from "@/lib/site-data";
+import {
+  products,
+  services,
+  testimonials,
+  contactInfo,
+  solutions,
+  steelworksGallery,
+} from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Open Blinds — Custom Window Blinds, Free Installation" },
+      { title: "Open Blinds Mbombela — Blinds, Shutters, Curtains, Steelworks & More" },
       {
         name: "description",
         content:
-          "Premium custom window blinds in South Africa. Aluwood, Plaswood, Honeycomb & Venetian — free quotes and free installation.",
+          "Custom blinds, shutters, curtains, awnings, window tinting, steel security gates and recycled outdoor furniture. Free quotes and free installation in Mbombela.",
       },
-      { property: "og:title", content: "Open Blinds — Shade up your windows" },
+      { property: "og:title", content: "Open Blinds — Shade, style & security for your home" },
       {
         property: "og:description",
         content:
-          "Premium South African craftsmanship. Custom-fitted blinds with free professional installation.",
+          "One team for blinds, shutters, curtains, tinting, steelworks and outdoor living — custom manufactured, professionally installed.",
       },
     ],
   }),
@@ -29,7 +36,7 @@ function HomePage() {
     <>
       <Hero />
       <About />
-      <Products />
+      <Solutions />
       <Services />
       <Testimonials />
       <Contact />
@@ -52,14 +59,14 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl grid-cols-12 items-center gap-8">
         <div className="col-span-12 lg:col-span-5">
           <p className="mb-6 text-xs uppercase tracking-widest text-brand-gold">
-            Custom window blinds — South Africa
+            Shade · Style · Security — Mbombela
           </p>
           <h1 className="mb-8 font-serif text-6xl leading-[0.9] text-brand-sand lg:text-8xl">
-            Shade up your <span className="italic text-brand-gold">windows.</span>
+            More than <span className="italic text-brand-gold">blinds.</span>
           </h1>
           <p className="mb-10 max-w-md text-lg text-brand-sand/65">
-            Premium South African craftsmanship meets architectural precision.
-            Elevate your interior with custom-fitted window solutions.
+            Custom blinds, shutters, curtains, awnings, window tinting, steel
+            security and outdoor living — one team, professionally installed.
           </p>
           <div className="mb-10 flex flex-wrap gap-6 text-sm font-bold text-brand-sand">
             <span className="flex items-center gap-2">
@@ -77,10 +84,10 @@ function Hero() {
               Request Free Quote
             </a>
             <a
-              href="#products"
+              href="#solutions"
               className="border border-brand-gold/40 px-8 py-4 text-xs font-bold uppercase tracking-widest text-brand-sand transition-colors hover:bg-brand-gold/10"
             >
-              Explore Products
+              Explore Solutions
             </a>
           </div>
         </div>
@@ -110,16 +117,16 @@ function About() {
         </div>
         <div className="col-span-12 space-y-6 text-lg leading-relaxed text-brand-sand/75 lg:col-span-7 lg:col-start-6">
           <p>
-            Welcome to Open Blinds, where we set the highest standards in the window
-            blinds industry, with a commitment to exceptional service at our core.
-            Our meticulous craftsmanship has earned us a reputation as a leading
-            blinds installer.
+            Welcome to Open Blinds — a Mbombela-based team known for meticulous
+            craftsmanship and personal service. What started with custom blinds has
+            grown into a full home solutions offering: shutters, curtains, awnings,
+            outdoor roller blinds, frosted glass &amp; tinting, custom steelworks
+            and recycled outdoor furniture.
           </p>
           <p>
-            We are your trusted partners in transforming your home. Our high-quality
-            products and personalised approach guarantee the perfect solution for
-            your needs. With free quotes and installation, we make the process
-            seamless.
+            One trusted team, from measurement to installation. Every project starts
+            with a free consultation and quote — so you know exactly what you're
+            getting before we begin.
           </p>
           <p className="border-l-2 border-brand-gold pl-6 font-serif text-xl italic text-brand-gold-light">
             Precision in every slat.
@@ -130,15 +137,15 @@ function About() {
   );
 }
 
-function Products() {
+function Solutions() {
   return (
-    <section id="products" className="scroll-mt-24 px-6 py-20 lg:px-8">
+    <section id="solutions" className="scroll-mt-24 px-6 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 flex items-end justify-between gap-8">
           <div>
-            <SectionEyebrow>Products</SectionEyebrow>
+            <SectionEyebrow>Solutions</SectionEyebrow>
             <h2 className="font-serif text-4xl text-brand-sand lg:text-5xl">
-              The Collection
+              More than blinds.
             </h2>
           </div>
           <div className="hidden h-px flex-1 bg-brand-gold/20 md:block" />
@@ -146,28 +153,114 @@ function Products() {
             Custom engineered for every space
           </span>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((p) => (
-            <article
-              key={p.name}
-              className="group bg-brand-charcoal p-6 transition-colors hover:bg-brand-surface flex flex-col h-full border border-brand-gold/10 rounded-lg"
-            >
-              <div className="aspect-[3/4] overflow-hidden rounded-md">
-                <img
-                  src={p.img}
-                  alt={`${p.name} blinds`}
-                  width={800}
-                  height={1000}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="mt-4 flex flex-col mt-auto">
-                <h3 className="mb-2 font-serif text-lg text-brand-sand">{p.name}</h3>
-                <p className="text-sm leading-relaxed text-brand-sand/60">{p.blurb}</p>
-              </div>
-            </article>
-          ))}
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {solutions.map((s) => {
+            const inner = (
+              <>
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="mb-3 flex items-center justify-between gap-4">
+                    <h3 className="font-serif text-xl text-brand-sand">{s.name}</h3>
+                    <span className="text-[10px] uppercase tracking-widest text-brand-gold">
+                      {s.tag}
+                    </span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-brand-sand/65">{s.blurb}</p>
+                  {s.anchor && (
+                    <span className="mt-4 text-xs font-bold uppercase tracking-widest text-brand-gold">
+                      View the range →
+                    </span>
+                  )}
+                </div>
+              </>
+            );
+            const className =
+              "group flex flex-col overflow-hidden rounded-lg border border-brand-gold/10 bg-brand-charcoal transition-colors hover:bg-brand-surface";
+            return s.anchor ? (
+              <a key={s.slug} href={s.anchor} className={className}>
+                {inner}
+              </a>
+            ) : (
+              <article key={s.slug} className={className}>
+                {inner}
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Blinds sub-range */}
+        <div id="blinds-range" className="mt-24 scroll-mt-24">
+          <div className="mb-10 flex items-end justify-between gap-8">
+            <div>
+              <SectionEyebrow>Blinds Range</SectionEyebrow>
+              <h3 className="font-serif text-3xl text-brand-sand lg:text-4xl">
+                Ten <span className="italic text-brand-gold">custom</span> blind types
+              </h3>
+            </div>
+            <div className="hidden h-px flex-1 bg-brand-gold/20 md:block" />
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {products.map((p) => (
+              <article
+                key={p.name}
+                className="group flex h-full flex-col rounded-lg border border-brand-gold/10 bg-brand-charcoal p-4 transition-colors hover:bg-brand-surface"
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-md">
+                  <img
+                    src={p.img}
+                    alt={`${p.name} blinds`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="mt-4 flex flex-1 flex-col">
+                  <h4 className="mb-2 font-serif text-base text-brand-sand">{p.name}</h4>
+                  <p className="text-xs leading-relaxed text-brand-sand/60">{p.blurb}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Steelworks gallery */}
+        <div id="steelworks-gallery" className="mt-24 scroll-mt-24">
+          <div className="mb-10 flex items-end justify-between gap-8">
+            <div>
+              <SectionEyebrow>Steelworks Gallery</SectionEyebrow>
+              <h3 className="font-serif text-3xl text-brand-sand lg:text-4xl">
+                Security &amp; <span className="italic text-brand-gold">bespoke</span> steel
+              </h3>
+            </div>
+            <div className="hidden h-px flex-1 bg-brand-gold/20 md:block" />
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {steelworksGallery.map((g) => (
+              <figure
+                key={g.label}
+                className="group overflow-hidden rounded-lg border border-brand-gold/10 bg-brand-charcoal"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={g.img}
+                    alt={g.label}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <figcaption className="p-4 text-xs uppercase tracking-widest text-brand-sand/80">
+                  {g.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -374,18 +467,19 @@ function Contact() {
               <Field label="Address" name="address" />
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-brand-sand/70">
-                  Blind Type Interested In
+                  I'm interested in
                 </label>
                 <select
-                  name="blind_type"
-                  defaultValue="Aluwood"
+                  name="interest"
+                  defaultValue="Custom Blinds"
                   className="border-b border-brand-gold/25 bg-transparent py-2 text-brand-sand transition-colors focus:border-brand-gold focus:outline-none"
                 >
-                  {products.map((p) => (
-                    <option key={p.name} className="bg-brand-charcoal">
-                      {p.name}
+                  {solutions.map((s) => (
+                    <option key={s.slug} className="bg-brand-charcoal">
+                      {s.name}
                     </option>
                   ))}
+                  <option className="bg-brand-charcoal">Not sure yet</option>
                 </select>
               </div>
               <div className="flex flex-col gap-2">

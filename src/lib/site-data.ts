@@ -9,10 +9,22 @@ import productRoman from "@/assets/roman.jpg";
 import productRoller from "@/assets/rollerblinds-product.jpg";
 import productDoubleRoller from "@/assets/double-roller.jpg";
 
+import blindsCover from "@/assets/hero-interior.jpg";
+import shuttersImg from "@/assets/Shutters.png.asset.json";
+import curtainsImg from "@/assets/curtains.png.asset.json";
+import awningImg from "@/assets/Awning.png.asset.json";
+import outdoorRollerImg from "@/assets/Outdoor_roller.png.asset.json";
+import tintingImg from "@/assets/tinting.png.asset.json";
+import frostedImg from "@/assets/frosted_glass.png.asset.json";
+import securityGateImg from "@/assets/security_gate.png.asset.json";
+import safetyDoorImg from "@/assets/Safety_door.png.asset.json";
+import steelRoofImg from "@/assets/Steel_roof.png.asset.json";
+import furnitureImg from "@/assets/outdoor_furniture.png.asset.json";
+
 export const navLinks = [
   { hash: "#home", label: "Home" },
   { hash: "#about", label: "About" },
-  { hash: "#products", label: "Products" },
+  { hash: "#solutions", label: "Solutions" },
   { hash: "#services", label: "Services" },
   { hash: "#testimonials", label: "Testimonials" },
   { hash: "#contact", label: "Contact" },
@@ -28,6 +40,89 @@ export const contactInfo = {
   instagram:
     "https://www.instagram.com/open_blinds_mbombela?igsh=aGdyNzFtM3kybHJ6&utm_source=qr",
 };
+
+export type Solution = {
+  slug: string;
+  name: string;
+  tag: string;
+  img: string;
+  blurb: string;
+  anchor?: string;
+};
+
+export const solutions: Solution[] = [
+  {
+    slug: "blinds",
+    name: "Custom Blinds",
+    tag: "10 ranges",
+    img: blindsCover,
+    blurb:
+      "Our signature offering — from Aluwood and Plaswood to Honeycomb, Venetian, Roller and Roman. Custom-measured for every window in your home.",
+    anchor: "#blinds-range",
+  },
+  {
+    slug: "shutters",
+    name: "Premium Plantation Shutters",
+    tag: "Timeless",
+    img: shuttersImg.url,
+    blurb:
+      "Timeless elegance, superior light control and lasting value. Custom-made to fit your windows perfectly, complementing both modern and classic interiors.",
+  },
+  {
+    slug: "curtains",
+    name: "Premium Curtains",
+    tag: "Made to measure",
+    img: curtainsImg.url,
+    blurb:
+      "Custom-made curtains that bring warmth, elegance and comfort. Soft sheers, blockouts and everything between — tailored in a wide range of fabrics and textures.",
+  },
+  {
+    slug: "awnings",
+    name: "Retractable Awnings",
+    tag: "Outdoor comfort",
+    img: awningImg.url,
+    blurb:
+      "Instant shade for your patio or entertainment area. Weather-resistant fabrics on durable aluminium — extend or retract whenever you need protection from sun or light rain.",
+  },
+  {
+    slug: "outdoor-rollers",
+    name: "Outdoor Roller Blinds",
+    tag: "All-weather",
+    img: outdoorRollerImg.url,
+    blurb:
+      "Transform your patio, deck, lapa or braai area. Built for the South African climate — sun, wind, glare and light rain protection while keeping your view.",
+  },
+  {
+    slug: "tinting",
+    name: "Frosted Glass & Tinting",
+    tag: "Privacy & UV",
+    img: tintingImg.url,
+    blurb:
+      "Professional frosting and tinting films for homes, offices, bathrooms and shopfronts. Reduce heat, glare and UV — or add decorative privacy and branding.",
+  },
+  {
+    slug: "steelworks",
+    name: "Steel Security & Steelworks",
+    tag: "Custom fabricated",
+    img: securityGateImg.url,
+    blurb:
+      "Custom security gates, security doors, sliding driveway gates and bespoke steelwork. Strong physical protection, finished to architectural standards.",
+  },
+  {
+    slug: "furniture",
+    name: "Recycled Plastic Furniture",
+    tag: "Sustainable",
+    img: furnitureImg.url,
+    blurb:
+      "Benches, tables and outdoor sets made from recycled plastic. Won't rot, splinter, rust or fade — durable, low-maintenance and environmentally friendly.",
+  },
+];
+
+export const steelworksGallery = [
+  { img: securityGateImg.url, label: "Sliding driveway gates" },
+  { img: safetyDoorImg.url, label: "Security doors" },
+  { img: steelRoofImg.url, label: "Custom steel structures" },
+];
 
 export const products = [
   {
@@ -105,13 +200,13 @@ export const services = [
   },
   {
     n: "03",
-    title: "Custom Blinds",
-    body: "Blinds tailored to your exact measurements and style. Choose from a wide range of materials, colours and designs.",
+    title: "Custom Manufacturing",
+    body: "Blinds, shutters, curtains and steelworks tailored to your exact measurements and style. Wide range of materials, colours and designs.",
   },
   {
     n: "04",
     title: "Design Consultation",
-    body: "Not sure what you need? Book a consultation with our design experts and we'll guide you to the best blinds for your space.",
+    body: "Not sure what you need? Book a consultation with our experts and we'll guide you to the best solution for your space.",
   },
 ];
 
