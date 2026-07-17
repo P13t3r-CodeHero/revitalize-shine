@@ -51,6 +51,8 @@ jobs:
             --name OpenBlindsWebApp
 
       - name: Deploy to Azure Web App
+        id: deploy
+        continue-on-error: true
         run: |
           mkdir -p deploy
           cp -r package.json package-lock.json start.js .output node_modules deploy/
@@ -64,3 +66,10 @@ jobs:
             --src-path app.zip \
             --type zip \
             --restart true
+
+      - name: Show deployment logs on failure
+        if: steps.deploy.outcome == 'failure'
+        run: |
+          az webapp log deployment show \
+            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
+            --name OpenBlindsWebApp || true
