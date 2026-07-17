@@ -467,18 +467,19 @@ function Contact() {
               <Field label="Address" name="address" />
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-brand-sand/70">
-                  Blind Type Interested In
+                  I'm interested in
                 </label>
                 <select
-                  name="blind_type"
-                  defaultValue="Aluwood"
+                  name="interest"
+                  defaultValue="Custom Blinds"
                   className="border-b border-brand-gold/25 bg-transparent py-2 text-brand-sand transition-colors focus:border-brand-gold focus:outline-none"
                 >
-                  {products.map((p) => (
-                    <option key={p.name} className="bg-brand-charcoal">
-                      {p.name}
+                  {solutions.map((s) => (
+                    <option key={s.slug} className="bg-brand-charcoal">
+                      {s.name}
                     </option>
                   ))}
+                  <option className="bg-brand-charcoal">Not sure yet</option>
                 </select>
               </div>
               <div className="flex flex-col gap-2">
