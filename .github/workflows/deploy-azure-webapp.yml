@@ -37,10 +37,30 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FD738A33CB0540E0A707C5BC20943778 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F4B11DBAF3034900B126D4AF1459D298 }}
 
+      - name: Configure Azure app settings
+        run: |
+          az webapp config appsettings set \
+            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
+            --name OpenBlindsWebApp \
+            --settings WEBSITE_RUN_FROM_PACKAGE=1 WEBSITE_NODE_DEFAULT_VERSION=22 SCM_DO_BUILD_DURING_DEPLOYMENT=false
+
+      - name: Start Azure Web App
+        run: |
+          az webapp start \
+            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
+            --name OpenBlindsWebApp
+
       - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: OpenBlindsWebApp
-          package: .
-          startup-file: node start.js
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        run: |
+          mkdir -p deploy
+          cp -r package.json package-lock.json start.js .output node_modules deploy/
+          cd deploy
+          rm -rf .git .github
+          zip -r ../app.zip .
+          cd ..
+          az webapp deploy \
+            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
+            --name OpenBlindsWebApp \
+            --src-path app.zip \
+            --type zip \
+            --restart true
