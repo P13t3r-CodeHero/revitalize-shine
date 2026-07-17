@@ -58,21 +58,6 @@ function HomePage() {
     </>
   );
 }
-      <Services />
-      <Testimonials />
-      <Contact />
-      <a
-        href={contactInfo.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full border border-brand-gold/30 bg-brand-charcoal text-brand-gold shadow-xl transition-all hover:scale-110 hover:bg-brand-gold hover:text-brand-charcoal"
-      >
-        <WhatsAppIcon className="h-7 w-7" />
-      </a>
-    </>
-  );
-}
 
 function Hero() {
   return (
