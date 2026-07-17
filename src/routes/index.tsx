@@ -20,11 +20,17 @@ export const Route = createFileRoute("/")({
         content:
           "Premium custom window blinds in South Africa. Aluwood, Plaswood, Honeycomb & Venetian — free quotes and free installation.",
       },
-      { property: "og:title", content: "Open Blinds — Shade up your windows" },
+      { title: "Open Blinds Mbombela — Blinds, Shutters, Curtains, Steelworks & More" },
+      {
+        name: "description",
+        content:
+          "Custom blinds, shutters, curtains, awnings, window tinting, steel security gates and recycled outdoor furniture. Free quotes and free installation in Mbombela.",
+      },
+      { property: "og:title", content: "Open Blinds — Shade, style & security for your home" },
       {
         property: "og:description",
         content:
-          "Premium South African craftsmanship. Custom-fitted blinds with free professional installation.",
+          "One team for blinds, shutters, curtains, tinting, steelworks and outdoor living — custom manufactured, professionally installed.",
       },
     ],
   }),
@@ -36,7 +42,22 @@ function HomePage() {
     <>
       <Hero />
       <About />
-      <Products />
+      <Solutions />
+      <Services />
+      <Testimonials />
+      <Contact />
+      <a
+        href={contactInfo.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full border border-brand-gold/30 bg-brand-charcoal text-brand-gold shadow-xl transition-all hover:scale-110 hover:bg-brand-gold hover:text-brand-charcoal"
+      >
+        <WhatsAppIcon className="h-7 w-7" />
+      </a>
+    </>
+  );
+}
       <Services />
       <Testimonials />
       <Contact />
