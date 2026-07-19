@@ -439,7 +439,7 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 border-b border-brand-gold/15 pb-4 transition-colors hover:text-brand-gold"
               >
-                <span className="font-serif text-2xl text-brand-gold">03</span>
+                <span className="font-serif text-2xl text-brand-gold">04</span>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-brand-sand/60">WhatsApp</p>
                   <p className="text-sm text-brand-sand">Chat with us</p>
