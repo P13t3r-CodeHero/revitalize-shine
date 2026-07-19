@@ -40,7 +40,7 @@ function HomePage() {
       >
         <WhatsAppIcon className="h-7 w-7" />
       </a>
-    </div>
+    </>
   );
 }
 
