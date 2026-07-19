@@ -99,14 +99,14 @@ function Hero() {
 function About() {
   return (
     <section id="about" className="scroll-mt-24 px-6 py-20 lg:px-8">
-      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-12">
-        <div className="col-span-12 lg:col-span-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-12">
+        <div className="lg:col-span-4">
           <SectionEyebrow>About</SectionEyebrow>
-          <h2 className="font-serif text-4xl leading-tight text-brand-sand lg:text-5xl">
+          <h2 className="font-serif text-3xl leading-tight text-brand-sand sm:text-4xl lg:text-5xl">
             Innovation meets <span className="italic text-brand-gold">excellence.</span>
           </h2>
         </div>
-        <div className="col-span-12 space-y-6 text-lg leading-relaxed text-brand-sand/75 lg:col-span-7 lg:col-start-6">
+        <div className="col-span-1 space-y-6 text-base leading-relaxed text-brand-sand/75 lg:col-span-7 lg:col-start-6 lg:text-lg">
           <p>
             Welcome to Open Blinds - a Mbombela-based team known for meticulous
             craftsmanship and personal service. What started with custom blinds has
@@ -408,21 +408,26 @@ function Contact() {
               from advice to the final installation.
             </p>
             <div className="space-y-5">
-              <a
-                href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                className="flex items-start gap-4 border-b border-brand-gold/15 pb-4 transition-colors hover:text-brand-gold"
-              >
-                <span className="font-serif text-2xl text-brand-gold">01</span>
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-brand-sand/60">Phone</p>
-                  <p className="text-sm text-brand-sand">{contactInfo.phone}</p>
-                </div>
-              </a>
+              {contactInfo.phoneNumbers.map((phone, index) => (
+                <a
+                  key={phone}
+                  href={`tel:${phone.replace(/\D/g, "")}`}
+                  className="flex items-start gap-4 border-b border-brand-gold/15 pb-4 transition-colors hover:text-brand-gold"
+                >
+                  <span className="font-serif text-2xl text-brand-gold">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-brand-sand/60">Phone</p>
+                    <p className="text-sm text-brand-sand">{phone}</p>
+                  </div>
+                </a>
+              ))}
               <a
                 href={`mailto:${contactInfo.email}`}
                 className="flex items-start gap-4 border-b border-brand-gold/15 pb-4 transition-colors hover:text-brand-gold"
               >
-                <span className="font-serif text-2xl text-brand-gold">02</span>
+                <span className="font-serif text-2xl text-brand-gold">{String(contactInfo.phoneNumbers.length + 1).padStart(2, "0")}</span>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-brand-sand/60">Email</p>
                   <p className="text-sm text-brand-sand">{contactInfo.email}</p>

@@ -31,8 +31,8 @@ export const navLinks = [
 ] as const;
 
 export const contactInfo = {
-  email: "admin@openblindsmpu.co.za ",
-  phone: "079 670 8077 / 071 580 4323",
+  email: "admin@openblindsmpu.co.za",
+  phoneNumbers: ["079 670 8077", "071 580 4323"],
   whatsapp: "https://wa.me/27728029022",
   facebook:
     "https://www.facebook.com/profile.php?id=61563113017635&mibextid=LQQJ4d",
