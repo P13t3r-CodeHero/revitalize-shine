@@ -6,7 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
 
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? `/${repoName}/` : "/",
+  base: "/",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   server: {
     host: "0.0.0.0",
