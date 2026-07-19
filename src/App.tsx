@@ -1,7 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import heroInterior from "@/assets/hero-interior.jpg";
-import { SectionEyebrow, WhatsAppIcon } from "@/components/site/layout";
+import { Header, Footer, SectionEyebrow, WhatsAppIcon } from "@/components/site/layout";
 import {
   products,
   services,
@@ -11,25 +10,17 @@ import {
   steelworksGallery,
 } from "@/lib/site-data";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Open Blinds Mbombela - Blinds, Shutters, Curtains, Steelworks & More" },
-      {
-        name: "description",
-        content:
-          "Custom blinds, shutters, curtains, awnings, window tinting, steel security gates and recycled outdoor furniture. Free quotes and free installation in Mbombela.",
-      },
-      { property: "og:title", content: "Open Blinds - Shade, style & security for your home" },
-      {
-        property: "og:description",
-        content:
-          "One team for blinds, shutters, curtains, tinting, steelworks and outdoor living - custom manufactured, professionally installed.",
-      },
-    ],
-  }),
-  component: HomePage,
-});
+export default function App() {
+  return (
+    <div className="min-h-screen bg-brand-charcoal font-sans text-brand-sand">
+      <Header />
+      <main className="pt-20">
+        <HomePage />
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function HomePage() {
   return (
@@ -383,7 +374,8 @@ function Contact() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
     try {
       // TODO: Replace with your contact form endpoint URL
@@ -394,7 +386,7 @@ function Contact() {
         body: JSON.stringify(payload),
       });
       setStatus(res.ok ? "sent" : "error");
-      if (res.ok) e.currentTarget.reset();
+      if (res.ok) form.reset();
     } catch {
       setStatus("error");
     }
