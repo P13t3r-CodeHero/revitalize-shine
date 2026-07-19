@@ -1,10 +1,9 @@
-name: Deploy to Azure Web App
+name: Build and Deploy Vite App to Azure Web App
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,60 +15,29 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: "20"
           cache: npm
 
       - name: Install dependencies
-        run: npm install --include=dev
+        run: npm ci
 
-      - name: Build app
+      - name: Build application
         run: npm run build
 
-      - name: Login to Azure
+      - name: Azure Login
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D0265A5778A247EAA4928933F9BADA9F }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FD738A33CB0540E0A707C5BC20943778 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F4B11DBAF3034900B126D4AF1459D298 }}
-
-      - name: Configure Azure app settings
-        run: |
-          az webapp config appsettings set \
-            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
-            --name OpenBlindsWebApp \
-            --settings WEBSITE_RUN_FROM_PACKAGE=1 WEBSITE_NODE_DEFAULT_VERSION=22 SCM_DO_BUILD_DURING_DEPLOYMENT=false
-
-      - name: Start Azure Web App
-        run: |
-          az webapp start \
-            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
-            --name OpenBlindsWebApp
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Web App
-        id: deploy
-        continue-on-error: true
-        run: |
-          mkdir -p deploy
-          cp -r package.json package-lock.json start.js .output node_modules deploy/
-          cd deploy
-          rm -rf .git .github
-          zip -r ../app.zip .
-          cd ..
-          az webapp deploy \
-            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
-            --name OpenBlindsWebApp \
-            --src-path app.zip \
-            --type zip \
-            --restart true
-
-      - name: Show deployment logs on failure
-        if: steps.deploy.outcome == 'failure'
-        run: |
-          az webapp log deployment show \
-            --resource-group "${{ secrets.AZURE_RESOURCE_GROUP }}" \
-            --name OpenBlindsWebApp || true
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: OpenBlindsWebApp
+          package: ./dist
