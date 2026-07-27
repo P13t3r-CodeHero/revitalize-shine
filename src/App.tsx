@@ -376,18 +376,26 @@ function Contact() {
     setStatus("sending");
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      clientCode: "TEST",
+    };
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3ODUwODc2MTgsImV4cCI6MTgxNjYyMzYxOCwiaXNzIjoib3BlbmJsaW5kcyIsImF1ZCI6ImVtYWlsLXNlcnZpY2UifQ.x0IY8ZR5Lm0MgDqf_M8urCBiiqErc7jpqZdmVMeWJuc';
     try {
       // TODO: Replace with your contact form endpoint URL
-      const endpoint = "https://YOUR-CONTACT-FORM-ENDPOINT.example.com";
+      const endpoint = "https://everestsoftwareemailservice-hqdwhzb8hra3e0g4.southafricanorth-01.azurewebsites.net/api/Email";
       const res = await fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(payload),
       });
       setStatus(res.ok ? "sent" : "error");
       if (res.ok) form.reset();
-    } catch {
+    } catch (error) {
+      console.error("Contact form submission failed", error);
       setStatus("error");
     }
   }
@@ -451,16 +459,16 @@ function Contact() {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <Field label="Name" name="name" required />
-                <Field label="Phone" name="phone" type="tel" required />
+                <Field label="Surname" name="surname" required />
               </div>
               <Field label="Email" name="email" type="email" required />
-              <Field label="Address" name="address" />
+              <Field label="Contact Number" name="contactNumber" type="tel" required/>
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-brand-sand/70">
                   I'm interested in
                 </label>
                 <select
-                  name="interest"
+                  name="product"
                   defaultValue="Custom Blinds"
                   className="border-b border-brand-gold/25 bg-transparent py-2 text-brand-sand transition-colors focus:border-brand-gold focus:outline-none"
                 >
