@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { Instagram, Facebook } from "lucide-react";
 import { navLinks, contactInfo } from "@/lib/site-data";
+import backgroundOpenblinds from "@/assets/background-openblinds.png";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-brand-gold/15 bg-brand-charcoal/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-        <a href="#home" className="font-serif text-2xl font-bold tracking-tight text-brand-sand">
-          OPEN <span className="text-brand-gold">BLINDS</span>
+        <a href="#home" className="flex items-center" aria-label="Open Blinds home">
+          <img
+            src={backgroundOpenblinds}
+            alt="Open Blinds"
+            className="h-40 w-auto object-contain"
+          />
         </a>
         <div className="hidden gap-10 text-xs font-semibold uppercase tracking-widest text-brand-sand/80 md:flex">
           {navLinks.map((l) => (
@@ -64,9 +69,11 @@ export function Footer() {
   return (
     <footer className="border-t border-brand-gold/15 bg-brand-charcoal px-6 py-12 text-brand-sand lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
-        <span className="font-serif text-xl font-bold">
-          OPEN <span className="text-brand-gold">BLINDS</span>
-        </span>
+        <img
+          src={backgroundOpenblinds}
+          alt="Open Blinds"
+          className="h-40 w-auto object-contain"
+        />
         <p className="text-[10px] uppercase tracking-widest text-brand-sand/40">
           © {new Date().getFullYear()} Open Blinds Mbombela. Precision in every slat.
         </p>

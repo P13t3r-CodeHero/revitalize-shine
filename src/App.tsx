@@ -378,7 +378,7 @@ function Contact() {
     const formData = new FormData(form);
     const payload = {
       ...Object.fromEntries(formData.entries()),
-      clientCode: "TEST",
+      clientCode: "OPENBLINDS",
     };
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3ODUwODc2MTgsImV4cCI6MTgxNjYyMzYxOCwiaXNzIjoib3BlbmJsaW5kcyIsImF1ZCI6ImVtYWlsLXNlcnZpY2UifQ.x0IY8ZR5Lm0MgDqf_M8urCBiiqErc7jpqZdmVMeWJuc';
     try {
